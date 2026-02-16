@@ -1,0 +1,91 @@
+---
+title: "My Data Visualization Portfolio"
+format: html
+execute:
+  echo: true
+---
+# Welcome to My Portfolio! 📊
+Hello! My nickname is Ananya Sinha. This is my Quarto data visualization portfolio 
+## About This Portfolio
+This portfolio demonstrates how Quarto can seamlessly integrate Python code and visualizations in
+## What is Matplotlib?
+Matplotlib is the most widely used Python library for creating static, animated, and interactive visualizations. Originally developed by John D. Hunter in 2003, it has become the de facto standard for data visualization in the scientific Python ecosystem.
+### Why is Matplotlib Useful?
+- **Versatility**: It supports line plots, scatter plots, bar charts, histograms, heatmaps, and many more chart types—almost anything you might need to visualize data.
+- **Publication-quality output**: Matplotlib produces high-resolution figures suitable for papers, presentations, and reports.
+- **Integration**: It works seamlessly with NumPy, pandas, and other data science tools, and integrates well with Jupyter and Quarto for reproducible workflows.
+- **Customization**: Nearly every element of a plot (colors, fonts, axes, annotations) can be customized to match your needs.
+All the visualizations in this portfolio are built with Matplotlib.
+## Simple Line Chart
+Let's create a simple line chart showing some sample data:
+::: {#430e6511 .cell execution_count=1}
+``` {.python .cell-code}
+import matplotlib.pyplot as plt
+import numpy as np
+# Create sample data
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+# Create the plot
+plt.figure(figsize=(7, 4.75))
+plt.plot(x, y, 'b-', linewidth=2, label='sin(x)')
+plt.xlabel('X values')
+plt.ylabel('Y values')
+plt.title('My First Matplotlib Chart')
+plt.grid(True, alpha=0.3)
+plt.legend()
+plt.show()
+```
+:::
+## Bar Chart Example
+Here's a bar chart showing some sample data:
+::: {#0a06d517 .cell execution_count=2}
+``` {.python .cell-code}
+# Sample data for bar chart
+categories = ['A', 'B', 'C', 'D', 'E']
+values = [23, 45, 56, 78, 32]
+plt.figure(figsize=(7, 4.75))
+bars = plt.bar(categories, values, color=['red', 'green', 'blue', 'orange', 'purple'])
+plt.xlabel('Categories')
+plt.ylabel('Values')
+plt.title('Sample Bar Chart')
+# Add value labels on bars
+for bar, value in zip(bars, values):
+plt.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 1,
+str(value), ha='center', va='bottom')
+plt.show()
+```
+:::
+## Scatter Plot Example
+Here's a scatter plot showing random data points:
+::: {.cell}
+``` {.python .cell-code}
+np.random.seed(42)
+x = np.random.randn(50)
+y = 2 * x + np.random.randn(50) * 0.5
+plt.figure(figsize=(7, 4.75))
+plt.scatter(x, y, alpha=0.7, c='steelblue', edgecolors='white', s=80)
+plt.xlabel('X values')
+plt.ylabel('Y values')
+plt.title('Random Data Scatter Plot')
+plt.grid(True, alpha=0.3)
+plt.show()
+```
+:::
+## Pie Chart Example
+Here's a pie chart showing sample data:
+::: {.cell}
+``` {.python .cell-code}
+labels = ['Python', 'JavaScript', 'R', 'SQL', 'Other']
+sizes = [35, 25, 15, 15, 10]
+colors = ['#ff9999', '#66b3ff', '#99ff99', '#ffcc99', '#ff99cc']
+explode = (0.05, 0, 0, 0, 0)
+plt.figure(figsize=(7, 4.75))
+plt.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%',
+        shadow=True, startangle=90)
+plt.title('Sample Pie Chart: Programming Language Preferences')
+plt.axis('equal')
+plt.show()
+```
+:::
+## Conclusion
+This demonstrates how Quarto can seamlessly integrate Python code and visualizations into professional portfolio.
